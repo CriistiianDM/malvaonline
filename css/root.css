@@ -1,0 +1,62 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;1,200;1,500&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+h1 , h2 , h3, h4 , 
+p, li , strong {
+    line-height: 1;
+}
+
+html,
+body {
+    background: var(--theme-primary);
+    padding: unset;
+    margin: unset;
+}
+
+/*
+    Styles General
+*/
+
+.main-container-root {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+}
+
+:root {
+    --theme-primary: #fafafa;
+    --black-secundary: #222;
+    --primary-color: #803ca1;
+    --white: #fff;
+    --theme-secundary: rgba(255,0,92,1);
+    --bg-primary: #4a3057;
+}
+
+/*
+ * Scrollbar General
+*/
+::-webkit-scrollbar {
+    display: initial;
+    width: auto;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #a8bbbf;
+}
