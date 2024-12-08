@@ -5,12 +5,13 @@
 import React from "react"
 
 // Componets
-import { Header } from '../src/components';
+import { Header, Banner } from '../src/components';
 
 export default () => {
     return (
         <main className="main-container-root">
             <Header />
+            <Banner />
         </main>
     )
 }

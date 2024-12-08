@@ -4,7 +4,9 @@ export default (props) => {
     
     // Props
     const {
-        SetEnableClass
+        SetEnableClass,
+        openNav, 
+        SetCloseNav
     } = props
 
     const eventScroll = () => {
@@ -18,7 +20,10 @@ export default (props) => {
         };
     }
 
+    const closeNav = () => SetCloseNav(!openNav)
+
     return {
-        eventScroll: eventScroll
+        eventScroll: eventScroll,
+        closeNav: closeNav,
     }
 }

@@ -12,22 +12,26 @@ import Const from './const'
 
 // Components
 import For from '../../shared/For'
+import Show from '../../shared/Show'
+import NavMenu from '../Nav/Nav'
 
 /** Header */
 export default () => {
     const [hiddenClass, SetEnableClass] = React.useState(false);
+    const [openNav, SetCloseNav] = React.useState(false);
 
-    const {
-        eventScroll
-    } = handlersFuncs({...{SetEnableClass}})
+    const handlers = handlersFuncs({...{SetEnableClass,openNav, SetCloseNav}})
 
-    React.useEffect(eventScroll, []); 
+    React.useEffect(handlers.eventScroll, []); 
 
     return (
       <React.Fragment>
+        <Show when={openNav}>
+          <NavMenu {...handlers}/>
+        </Show>
         <PromotionHeader />
-        <header className={hiddenClass?'active-header' : ''}>
-           <FirstSection />
+        <header className={hiddenClass? 'active-header' : ''}>
+           <FirstSection {...{handlers}}/>
            <LastSection />
         </header>
       </React.Fragment>
@@ -47,10 +51,10 @@ const PromotionHeader = () => {
 }
 
 /** Hamburger and Navmenu */
-const FirstSection = ({}) => {
+const FirstSection = ({ handlers }) => {
     return (
         <section>
-            <For func={printItems} list={Const.firstSection} />
+            <For func={printItems} list={Const.firstSection} shared={handlers} />
         </section>
     )
 }
@@ -66,8 +70,10 @@ const LastSection = () => {
 
 /** List Repeat */
 const printItems = (element, index, shared) => {
+    let handler = null
+    if (shared) handler = shared[element?.callback] ?? null
     return (
-        <a onClick={element?.callback} tag={element?.tag} key={index}>
+        <a onClick={handler} tag={element?.tag} key={index}>
             {element?.content}
         </a>
     )

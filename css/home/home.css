@@ -4,7 +4,9 @@ header {
     justify-content: space-between;
     padding: 7px 23px;
     width: 100%;
+    height: 88px;
     overflow: hidden;
+    z-index: 9;
 }
 
 header section,
@@ -51,6 +53,7 @@ section[tag="sub-hearder"] {
     align-items: center;
     overflow: hidden;
     width: 100%;
+    min-height: 28px;
     padding: 5px;
     background: var(--theme-primary);
     border-bottom: .1rem solid rgba(var(--color-foreground), .08);
@@ -64,12 +67,29 @@ section[tag="sub-hearder"] span {
     word-break: break-word;
 }
 
+/* BANNERS */
+section[tag="banner"] {
+    width: 100%;
+    margin-top: -88px;
+    height: calc(100vh - 28px);
+    z-index: 3;
+}
+
+section[tag="banner"] img {
+    width: 100%;
+}
+
+section[tag="banner"] a {
+    cursor: pointer;
+}
+
+/* Utils */
 .active-header {
     background: var(--white);
 }
 
 /* Rato sin usar @media */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 767px) {
     header section:last-of-type a:nth-of-type(2) {
         display: none;
     }
@@ -92,4 +112,15 @@ section[tag="sub-hearder"] span {
         justify-content: center;
         width: 90%;
     }
+
+    section[tag="banner"] img[alt="banner"] {
+        display: none;
+    }
+}
+
+/* Rato sin usar @media */
+@media screen and (min-width: 768px) {
+    section[tag="banner"] img[alt="banner-mobile"] {
+        display: none;
+    }    
 }

@@ -10,7 +10,7 @@ export default {
         {
             tag: "hamburger",
             content: <Hamburger />,
-            callback: null
+            callback: 'closeNav'
         },
         {
             tag: "logo",
