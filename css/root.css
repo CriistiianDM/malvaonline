@@ -23,11 +23,13 @@ body {
 */
 
 .main-container-root {
+    position: relative;
     display: flex;
     flex-direction: column;
     max-width: 1980px;
     margin: 0 auto;
     width: 100%;
+    max-width: 100%;
     overflow: hidden;
 }
 
@@ -40,6 +42,11 @@ body {
     --bg-primary: #4a3057;
     --color-foreground: 18, 18, 18;
     --font-primary: #3d3d3d;
+    --outline-divider-menu: #e7e7e7;
+    --outline-divider-alt: #4f4f4f;
+    --background-emphasis: #f6f6f6;
+    --background-line-menu: #e6e6e6;
+    --outline-divider: #b0b0b0;
 }
 
 /*

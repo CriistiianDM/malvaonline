@@ -14,6 +14,7 @@ import Const from './const'
 import For from '../../shared/For'
 import Show from '../../shared/Show'
 import NavMenu from '../Nav/Nav'
+import printItems from '../../shared/List'
 
 /** Header */
 export default () => {
@@ -27,12 +28,12 @@ export default () => {
     return (
       <React.Fragment>
         <Show when={openNav}>
-          <NavMenu {...handlers}/>
+            <NavMenu {...handlers}/>
         </Show>
         <PromotionHeader />
         <header className={hiddenClass? 'active-header' : ''}>
-           <FirstSection {...{handlers}}/>
-           <LastSection />
+            <FirstSection {...{handlers}}/>
+            <LastSection />
         </header>
       </React.Fragment>
     )
@@ -65,16 +66,5 @@ const LastSection = () => {
         <section>
             <For func={printItems} list={Const.secondSection} />
         </section>
-    )
-}
-
-/** List Repeat */
-const printItems = (element, index, shared) => {
-    let handler = null
-    if (shared) handler = shared[element?.callback] ?? null
-    return (
-        <a onClick={handler} tag={element?.tag} key={index}>
-            {element?.content}
-        </a>
     )
 }
