@@ -1,0 +1,95 @@
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 23px;
+    width: 100%;
+    overflow: hidden;
+}
+
+header section,
+header section:first-of-type div {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+header section a {
+    cursor: pointer;
+}
+
+header section:first-of-type {
+    max-width: 180px;
+    width: 80%;
+}
+
+header section:last-of-type {
+    max-width: 180px;
+    width: 20%;
+}
+
+header section:first-of-type a[tag="logo"] {
+    width: 100%;
+}
+
+header section:first-of-type a[tag="hamburger"] svg {
+    width: 20px;
+    height: 20px;
+}
+
+header section img[alt="logo"] {
+    width: 100px;
+    height: 70px;
+}
+
+/* Sub Header */
+section[tag="sub-hearder"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    padding: 5px;
+    background: var(--theme-primary);
+    border-bottom: .1rem solid rgba(var(--color-foreground), .08);
+}
+
+section[tag="sub-hearder"] span {
+    text-align: center;
+    color: var(--font-primary);
+    font-weight: 600;
+    line-height: 15.6px;
+    word-break: break-word;
+}
+
+.active-header {
+    background: var(--white);
+}
+
+/* Rato sin usar @media */
+@media screen and (max-width: 600px) {
+    header section:last-of-type a:nth-of-type(2) {
+        display: none;
+    }
+
+    header section:first-of-type a[tag="logo"] {
+        display: flex;
+        justify-content: center;
+    }
+
+    header section:first-of-type {
+        max-width: unset;
+    }
+
+    header section:last-of-type {
+        gap: unset;
+    }
+
+    section[tag="sub-hearder"] div {
+        display: flex;
+        justify-content: center;
+        width: 90%;
+    }
+}
