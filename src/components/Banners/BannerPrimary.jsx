@@ -5,12 +5,12 @@
 import React from "react"
 
 /** Banner */
-export default () => {
+export default ({ urlDeskt, urlMobile, id }) => {
     return (
-        <section tag="banner">
+        <section tag="banner" id={id}>
             <a>
-                <img src="/img/banner.webp" alt="banner"/>
-                <img src="/img/banner_mobile.webp" alt="banner-mobile"/>
+                <img src={urlDeskt} alt="banner"/>
+                <img src={urlMobile} alt="banner-mobile"/>
             </a>
         </section>
     )

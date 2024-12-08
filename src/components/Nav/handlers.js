@@ -1,7 +1,5 @@
 // Handlers Nav Menu
 export default (props) => {
-    const initHeight = 30
-    
     // Props
     const {
         setSelected,

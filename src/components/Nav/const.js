@@ -648,33 +648,7 @@ export default {
                     id: 'item-menu',
                     content: 'Ir a Inicio',
                     icon: null,
-                    callback: 'goToSubMenu',
-                    items: [
-                        {
-                            content: 'Scalpers',
-                            callback: null,
-                        },
-                        {
-                            content: 'El ganso',
-                            callback: null,
-                        },
-                        {
-                            content: 'No drama',
-                            callback: null,
-                        },
-                        {
-                            content: 'Eco Alf',
-                            callback: null,
-                        },
-                        {
-                            content: 'Ami Paris',
-                            callback: null,
-                        },
-                        {
-                            content: 'Voie',
-                            callback: null,
-                        },
-                    ]
+                    callback: null,
                 },
                 {
                     type: 'a',

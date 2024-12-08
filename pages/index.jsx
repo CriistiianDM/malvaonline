@@ -5,13 +5,19 @@
 import React from "react"
 
 // Componets
-import { Header, Banner } from '../src/components';
+import { Header, Banner, BannerColumns, Footer } from '../src/components';
+
+// Const 
+import Const from './const'
 
 export default () => {
     return (
         <main className="main-container-root">
             <Header />
-            <Banner />
+            <Banner {...Const.confBanner} />
+            <BannerColumns data={Const.confBannerColumns} />
+            <Banner {...Const.confBannerSecundary} />
+            <Footer />
         </main>
     )
 }

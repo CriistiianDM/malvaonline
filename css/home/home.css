@@ -68,10 +68,14 @@ section[tag="sub-hearder"] span {
 }
 
 /* BANNERS */
+#banner-primary-1 {
+    margin-top: -88px;
+}
+
 section[tag="banner"] {
     width: 100%;
-    margin-top: -88px;
     height: calc(100vh - 28px);
+    margin-bottom: 20px;
     z-index: 3;
 }
 
@@ -81,6 +85,55 @@ section[tag="banner"] img {
 
 section[tag="banner"] a {
     cursor: pointer;
+}
+
+/* Banner Two Columns */
+section[tag="banner-two-columns"] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    z-index: 3;
+    margin: 20px 0;
+}
+
+section[tag="banner-two-columns"] img {
+    width: 100%;
+}
+
+section[tag="banner-two-columns"] a {
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+}
+
+section[tag="banner-two-columns"] a > div {
+    position: absolute;
+    display: grid;
+    place-content: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+section[tag="banner-two-columns"] a > div h2 {
+    color: var(--white);
+    text-align: center;
+    font-size: 43px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+section[tag="banner-two-columns"] a > div span {
+    color: var(--white);
+    text-align: center;
+    font-size: 15px;
+    width: 80%;
+    margin: 0 auto;
 }
 
 /* Nav Menu */
@@ -170,6 +223,7 @@ nav[tag="nav-menu"] div[tag="content-nav"] a {
     color: var(--font-primary);
     padding: 12px;
     border-bottom: 1px solid var(--background-line-menu);
+    cursor: pointer;
 }
 
 nav[tag="nav-menu"] div[tag="footer-nav"] {
@@ -209,6 +263,7 @@ nav[tag="nav-menu"] div[tag="sub-menu-nav"] a[tag="see-all-category"] {
     align-items: center;
     color: var(--font-primary);
     padding: 0 20px;
+    cursor: pointer;
 }
 
 nav[tag="nav-menu"] div[tag="sub-menu-nav"] div[tag="list-sub-menu"] {
@@ -230,7 +285,7 @@ nav[tag="nav-menu"] div[tag="footer-nav"] div[tag="line"] {
 
 nav[tag="nav-menu"] div[tag="footer-nav"] div[tag="line"]:last-of-type {
     justify-content: center;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
     border-bottom: var(--outline-divider) 1px solid;
 }
 
@@ -308,8 +363,13 @@ nav[tag="nav-menu"] div[tag="footer-nav"] div[tag="line"]:last-of-type {
 
 /* Rato sin usar @media */
 @media screen and (min-width: 768px) {
+    nav[tag="nav-menu"] div[tag="footer-nav"] div[tag="line"]:last-of-type,
     nav[tag="nav-menu"] div[tag="head-nav"] a[tag="close-btn-nav"],
     section[tag="banner"] img[alt="banner-mobile"] {
         display: none;
+    }
+
+    section[tag="banner-two-columns"] a {
+        max-width: calc(50% - 10px);
     }
 }
