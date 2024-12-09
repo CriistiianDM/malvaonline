@@ -8,7 +8,7 @@ import React from "react"
 import { Header, Banner, BannerColumns, Footer } from '../src/components';
 
 // Const 
-import Const from './const'
+import Const from '../utils/const'
 
 export default () => {
     return (

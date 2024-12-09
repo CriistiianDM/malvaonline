@@ -289,6 +289,97 @@ nav[tag="nav-menu"] div[tag="footer-nav"] div[tag="line"]:last-of-type {
     border-bottom: var(--outline-divider) 1px solid;
 }
 
+/* Footer */
+footer[tag="footer"] {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    width: 100%;
+    min-height: 350px;
+    padding: 20px;
+    background: var(--background-principal-footer);
+    color: var(--text-color-text-footer);
+}
+
+footer[tag="footer"] > section:first-of-type {
+    height: 80%;
+    width: 100%;
+}
+
+footer[tag="footer"] > section:last-of-type {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+    border-top: 1px solid var(--outline-divider-alt);
+    height: 20%;
+    width: 100%;
+}
+
+footer[tag="footer"] > section:last-of-type div:first-of-type {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+footer[tag="footer"] > section:first-of-type {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 247px;
+}
+
+footer[tag="footer"] > section:first-of-type div[tag="head-option"] {
+    margin: 10px;
+    max-width: max(calc(25% - 20px), 200px);
+    width: 100%;
+}
+
+footer[tag="footer"] > section:first-of-type div[tag="head-option"] > div:first-of-type {
+    padding: 10px;
+    height: 40px;
+    border-bottom: 1px solid var(--outline-divider);
+}
+
+footer[tag="footer"] > section:first-of-type > div[tag="head-option"]:last-of-type > div {
+    border-bottom: unset;
+}
+
+footer[tag="footer"] > section:first-of-type 
+div[tag="head-option"] > div:first-of-type {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer[tag="footer"] > section:first-of-type 
+div[tag="head-option"] > div[tag="social-network"] {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    height: 40px;
+}
+
+footer[tag="footer"] > section:first-of-type 
+div[tag="head-option"] > div:last-of-type > div[tag="list"] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 20px;
+}
+
+footer[tag="footer"] > section:first-of-type 
+div[tag="head-option"] > div[tag="newsletter"] {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: auto;
+}
+
 /* Utils */
 .active-header {
     background: var(--white);
@@ -358,6 +449,25 @@ nav[tag="nav-menu"] div[tag="footer-nav"] div[tag="line"]:last-of-type {
 
     section[tag="sub-hearder"] span {
         font-size: 12px;
+    }
+
+    footer[tag="footer"] > section:last-of-type div:first-of-type a {
+        width: 100%;
+    }
+
+    footer[tag="footer"] > section:last-of-type div:last-of-type {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-top: 1px solid var(--outline-divider-alt);
+        margin: auto;
+        width: 100%;
+        height: 70px;
+        text-align: center;
+    }
+
+    footer[tag="footer"] > section:first-of-type div[tag="head-option"] {
+        max-width: max(calc(25% - 20px), 500px);
     }
 }
 
