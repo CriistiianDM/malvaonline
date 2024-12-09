@@ -1,46 +1,25 @@
-FROM node:22-slim AS base
-
-ARG PORT=3000
+FROM node:22-slim AS build
 
 ENV NEXT_TELEMETRY_DISABLED=1
 
 WORKDIR /app
 
-# Dependencies
-FROM base AS dependencies
+COPY ./ ./
 
-COPY package.json package-lock.json ./
 RUN npm ci --legacy-peer-deps --silent
-
-# Build
-FROM base AS build
-
-COPY --from=dependencies /app/node_modules ./node_modules
-COPY . .
-
-# Public build-time environment variables
-ARG NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
-ENV NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=$NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
 
 RUN npm run build
 
-# Run
-FROM base AS run
+RUN npm install -g pm2
 
-ENV NODE_ENV=production
-ENV PORT=$PORT
+RUN pm2 start npm --name "nextjs-app" -- start
 
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
-RUN mkdir .next
-RUN chown nextjs:nodejs .next
+FROM nginx:stable AS production
 
-COPY --from=build /app/public ./public
-COPY --from=build --chown=nextjs:nodejs /app/.next/static ./.next/static
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /app/out /usr/share/nginx/html
 
-USER nextjs
+EXPOSE 80
 
-EXPOSE $PORT
-
-ENV HOSTNAME="0.0.0.0"
-CMD ["npm", "start"]
+# Comando para iniciar Nginx
+CMD ["nginx", "-g", "daemon off;"]
