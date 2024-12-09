@@ -74,7 +74,6 @@ section[tag="sub-hearder"] span {
 
 section[tag="banner"] {
     width: 100%;
-    height: calc(100vh - 28px);
     margin-bottom: 20px;
     z-index: 3;
 }
@@ -138,7 +137,7 @@ section[tag="banner-two-columns"] a > div span {
 
 /* Nav Menu */
 nav[tag="nav-menu"] {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
@@ -380,6 +379,29 @@ div[tag="head-option"] > div[tag="newsletter"] {
     height: auto;
 }
 
+/* Cards */
+div[tag="slider"] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+div[tag="slider"] > div {
+    padding: 6px;
+    overflow: hidden;
+}
+
+div[tag="slider"] > div:first-of-type {
+    height: 800px;
+}
+
+div[tag="slider"] > div:first-of-type img {
+    width: 100%;
+    height: 800px;
+    object-fit: cover;
+}
+
 /* Utils */
 .active-header {
     background: var(--white);
@@ -481,5 +503,12 @@ div[tag="head-option"] > div[tag="newsletter"] {
 
     section[tag="banner-two-columns"] a {
         max-width: calc(50% - 10px);
+    }
+}
+
+/* Rato sin usar @media */
+@media screen and (min-width: 1980px) {
+    nav[tag="nav-menu"] {
+        left: calc( (100% - 1980px) / 2);
     }
 }

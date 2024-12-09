@@ -20,10 +20,21 @@ export default (props) => {
         // };
     }
 
+    const openNavEffect = () => {
+        if (openNav == null) return
+        const body = document.querySelectorAll('body')[0]
+        if (body?.classList?.contains('overflow-hidden')) {
+            body.classList.remove('overflow-hidden');
+        } else {
+            body?.classList?.add('overflow-hidden');
+        }
+    }
+
     const closeNav = () => SetCloseNav(!openNav)
 
     return {
         eventScroll: eventScroll,
         closeNav: closeNav,
+        openNavEffect: openNavEffect
     }
 }

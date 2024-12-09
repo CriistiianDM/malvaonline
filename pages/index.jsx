@@ -5,7 +5,7 @@
 import React from "react"
 
 // Componets
-import { Header, Banner, BannerColumns, Footer } from '../src/components';
+import { Header, Banner, BannerColumns, Footer, Cards } from '../src/components';
 
 // Const 
 import Const from '../utils/const'
@@ -15,6 +15,7 @@ export default () => {
         <main className="main-container-root">
             <Header />
             <Banner {...Const.confBanner} />
+            <Cards />
             <BannerColumns data={Const.confBannerColumns} />
             <Banner {...Const.confBannerSecundary} />
             <Footer />

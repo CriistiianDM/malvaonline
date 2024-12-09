@@ -19,11 +19,12 @@ import printItems from '../../shared/List'
 /** Header */
 export default () => {
     const [hiddenClass, SetEnableClass] = React.useState(false);
-    const [openNav, SetCloseNav] = React.useState(false);
+    const [openNav, SetCloseNav] = React.useState(null);
 
     const handlers = handlersFuncs({...{SetEnableClass,openNav, SetCloseNav}})
 
     React.useEffect(handlers.eventScroll, []); 
+    React.useEffect(handlers.openNavEffect, [openNav]);
 
     return (
       <React.Fragment>

@@ -8,6 +8,10 @@ import React from "react"
 import '../css/root.css'
 import "../css/home/home.css"
 
+// Other Styles
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+
 export default ({ Component, pageProps }) => {
     return <Component {...pageProps} />
 }
