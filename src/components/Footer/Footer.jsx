@@ -40,11 +40,11 @@ export default () => {
     )
 }
 
-/** Section Information */
+/** First Section */
 const FirstSection = ({ handlers, openTap }) => {
     return (
         <React.Fragment>
-            {/* Following */}
+            {/* Social Network Section */}
             <div tag="head-option">
                 <div>
                     <span>Síguenos</span>
@@ -53,52 +53,37 @@ const FirstSection = ({ handlers, openTap }) => {
                     <For func={BodyNavMenu} list={Const.networksSocial} shared={null} />
                 </div>
             </div>
-            <div tag="head-option">
-                <div onClick={() => handlers.openCloseTap('servicio')}>
-                    <span>Servicio al cliente</span>
-                    <Show when={openTap.servicio}>
-                        <ArrowUp />
-                    </Show>
-                    <Show when={!openTap.servicio}>
-                        <ArrowDown />
-                    </Show>
-                </div>
-                <div>
-                    <Show when={openTap.servicio}>
-                        <div tag="list">
-                            <For func={BodyNavMenu} list={Const.states} shared={null} />
-                        </div>
-                    </Show>
-                </div>
-            </div>
-            <div tag="head-option">
-                <div onClick={() => handlers.openCloseTap('somos')}>
-                    <span>Quienes Somos</span>
-                    <Show when={openTap.somos}>
-                        <ArrowUp />
-                    </Show>
-                    <Show when={!openTap.somos}>
-                        <ArrowDown />
-                    </Show>
-                </div>
-                <div>
-                    <Show when={openTap.somos}>
-                        <div tag="list">
-                            <For func={BodyNavMenu} list={Const.equipo} shared={null} />
-                        </div>
-                    </Show>
-                </div>
-            </div>
+
+            {/* Toggle Sections */}
+            <ToggleSection
+                title="Servicio al cliente"
+                stateKey="servicio"
+                list={Const.states}
+                handlers={handlers}
+                openTap={openTap}
+            />
+            <ToggleSection
+                title="Quienes Somos"
+                stateKey="somos"
+                list={Const.equipo}
+                handlers={handlers}
+                openTap={openTap}
+            />
+
+            {/* Newsletter Section */}
             <div tag="head-option">
                 <div tag="newsletter">
                     <p>Suscríbete a nuestro Newsletter</p>
-                    <p>Regístrate para recibir 10% de descuento en tu primera orden y ofertas exclusivas a lo largo del año.</p>
+                    <p>
+                        Regístrate para recibir 10% de descuento en tu primera orden y ofertas
+                        exclusivas a lo largo del año.
+                    </p>
                 </div>
                 <div></div>
             </div>
         </React.Fragment>
-    )
-}
+    );
+};
 
 /** Politices */
 const LastSection = ({ handlers }) => {
@@ -113,3 +98,18 @@ const LastSection = ({ handlers }) => {
         </React.Fragment>
     )
 }
+
+/** Toggle */
+const ToggleSection = ({ title, stateKey, list, handlers, openTap }) => (
+    <div tag="head-option">
+        <div onClick={() => handlers.openCloseTap(stateKey)}>
+            <span>{title}</span>
+            {openTap[stateKey] ? <ArrowUp /> : <ArrowDown />}
+        </div>
+        <Show when={openTap[stateKey]}>
+            <div tag="list">
+                <For func={BodyNavMenu} list={list} shared={null} />
+            </div>
+        </Show>
+    </div>
+);

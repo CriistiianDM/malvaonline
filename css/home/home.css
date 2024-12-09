@@ -362,7 +362,7 @@ div[tag="head-option"] > div[tag="social-network"] {
 }
 
 footer[tag="footer"] > section:first-of-type 
-div[tag="head-option"] > div:last-of-type > div[tag="list"] {
+div[tag="head-option"] > div[tag="list"] {
     display: flex;
     flex-direction: column;
     justify-content: center;
